@@ -1,0 +1,50 @@
+import type { Config } from "tailwindcss";
+
+export default {
+  darkMode: ["class"],
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "bg-base": "var(--bg-base)",
+        "bg-inverted": "var(--bg-inverted)",
+        "bg-surface": "var(--bg-surface)",
+        "border-default": "var(--border-default)",
+        "text-primary": "var(--text-primary)",
+        "text-muted": "var(--text-muted)",
+        "text-on-inverted": "var(--text-on-inverted)",
+        "accent-primary": "var(--accent-primary)",
+        "accent-foreground": "var(--accent-foreground)",
+        "accent-2-from": "var(--accent-2-from)",
+        "accent-2-to": "var(--accent-2-to)",
+        "state-error": "var(--state-error)",
+        "state-success": "var(--state-success)",
+        border: "var(--border-default)",
+        input: "var(--border-default)",
+        ring: "var(--accent-2-from)",
+        background: "var(--bg-base)",
+        foreground: "var(--text-primary)",
+        primary: "var(--accent-primary)",
+        "primary-foreground": "var(--accent-foreground)",
+        secondary: "var(--bg-surface)",
+        "secondary-foreground": "var(--text-primary)",
+        muted: "var(--bg-surface)",
+        "muted-foreground": "var(--text-muted)",
+        accent: "var(--accent-primary)",
+        destructive: "var(--state-error)",
+        "destructive-foreground": "var(--text-on-inverted)",
+      },
+      borderRadius: {
+        lg: "var(--radius-lg)",
+        "2xl": "var(--radius-2xl)",
+        hero: "var(--radius-hero)",
+        pill: "var(--radius-pill)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;

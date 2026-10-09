@@ -1,0 +1,156 @@
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #ffffff;
+  --bg-inverted: #0d0d0d;
+  --bg-surface: #ffffff;
+  --border-default: #e4e4e7;
+  --text-primary: #0d0d0d;
+  --text-muted: #71717a;
+  --text-on-inverted: #ffffff;
+  --accent-primary: #d6ff3f;
+  --accent-foreground: #0d0d0d;
+  --accent-2-from: #6366f1;
+  --accent-2-to: #8b5cf6;
+  --state-error: #ef4444;
+  --state-success: #22c55e;
+  --font-sans: "Geist Variable", sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
+  --radius-lg: 0.5rem;
+  --radius-2xl: 1rem;
+  --radius-hero: 2rem;
+  --radius-pill: 9999px;
+}
+
+html[data-theme="dark"] {
+  --bg-base: #121212;
+  --bg-inverted: #050505;
+  --bg-surface: #181818;
+  --border-default: #313131;
+  --text-primary: #fdfdfd;
+  --text-muted: #a1a1aa;
+  --text-on-inverted: #fdfdfd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skills-marquee {
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .skills-marquee-track {
+    animation: none;
+    width: 100%;
+  }
+
+  .skills-marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+    width: 100%;
+  }
+
+  .skills-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+@keyframes skills-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skills-marquee {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    var(--text-primary) 8%,
+    var(--text-primary) 92%,
+    transparent
+  );
+  overflow: hidden;
+}
+
+.skills-marquee-track {
+  animation: skills-marquee 28s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.skills-marquee-group {
+  display: flex;
+  flex: none;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0.75rem 0 0;
+  white-space: nowrap;
+}
+
+.skills-marquee-item {
+  align-items: center;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  display: inline-flex;
+  flex: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.skills-marquee:hover .skills-marquee-track,
+.skills-marquee:focus .skills-marquee-track,
+.skills-marquee:focus-within .skills-marquee-track {
+  animation-play-state: paused;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--border-default) 36%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--border-default) 28%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 2.75rem 2.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply m-0 bg-bg-base font-sans text-text-primary antialiased;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition: background-color 180ms ease-out, color 180ms ease-out;
+  }
+}
